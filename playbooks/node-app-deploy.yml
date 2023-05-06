@@ -1,5 +1,5 @@
-- hosts: ubuntu_slaves
-  become: true
+- hosts: webservers
+  become: yes
   tasks:
     - name: copy built files to deploy-server
       synchronize:
@@ -8,9 +8,18 @@
         delete: true
         recursive: true
 
+    - name: change-owner
+      file:
+        path: /var/www/my-app/
+        owner: ubuntu
+        group: ubuntu
+        recurse: yes
+        state: directory
+
     - name: start node
-      shell:
-        cmd: npm i && npm i pm2@latest && pm2 start
+      shell: 
         chdir: /var/www/my-app/
+        cmd: /bin/bash startnode.sh
+      become: yes
 
   

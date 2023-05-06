@@ -22,7 +22,7 @@ pipeline{
             steps {
             echo "deploying the application using ansible-playbook"
 	sh '''
-	ansible-playbook -i inventory playbooks/node-app-deploy.yml --key-file /var/lib/jenkins/pemfile
+	ansible-playbook playbooks/node-app-deploy.yml --key-file /var/lib/jenkins/pemfile
 	'''
 
             }

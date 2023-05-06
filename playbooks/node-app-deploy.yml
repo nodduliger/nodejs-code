@@ -3,7 +3,7 @@
   tasks:
     - name: copy built files to deploy-server
       synchronize:
-        src: /var/lib/jenkins/workspace/node-pipeline/build/
+        src: /var/lib/jenkins/workspace/answer3/build/
         dest: /var/www/my-app/
         delete: true
         recursive: true

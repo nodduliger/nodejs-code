@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 cd /var/www/myapp/
 
 docker stop nodecontainer 2> /dev/null
